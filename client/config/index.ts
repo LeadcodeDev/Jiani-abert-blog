@@ -7,5 +7,6 @@ import Sitemap from './Sitemap'
 import Toasts from './Toasts'
 import Translations from './Translations'
 import GoogleAnalytics from './GoogleAnalytics'
+import Tailwindcss from './Tailwindcss'
 
-export { Auth, Axios, BootstrapVue, Meta, Robots, Sitemap, Toasts, Translations, GoogleAnalytics }
+export { Auth, Axios, BootstrapVue, Meta, Robots, Sitemap, Toasts, Translations, GoogleAnalytics, Tailwindcss }
