@@ -24,7 +24,7 @@ export default {
 	/*
 	 ** Nuxt.js dev-modules
 	 */
-	buildModules: ['@nuxt/typescript-build', '@nuxtjs/composition-api', ['@nuxtjs/google-analytics', GoogleAnalytics],['@nuxtjs/tailwindcss',Tailwindcss] ],
+	buildModules: ['@nuxt/typescript-build', '@nuxtjs/composition-api', ['@nuxtjs/google-analytics', GoogleAnalytics], ['@nuxtjs/tailwindcss', Tailwindcss]],
 
 	/**
 	 ** Nuxt build folder
@@ -86,7 +86,7 @@ export default {
 	 ** Global style module settings
 	 ** See https://fr.nuxtjs.org/guides/configuration-glossary/configuration-css
 	 */
-	css: ['material-icons/iconfont/material-icons.scss'],
+	css: ['material-icons/iconfont/material-icons.scss', '@/public/icons/style.css'],
 
 	/*
 	 ** Plugins to load before mounting the App

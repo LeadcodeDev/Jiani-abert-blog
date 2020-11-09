@@ -1,10 +1,10 @@
 <template>
-	<div class="flex text-center centered">
-		<div class="w-1/2">
+	<div class="flex text-center centered bg-white-500 profil p-44 px1 py-5">
+		<div class="w-1/2 flex justify-center">
 			<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" alt="" class="object-cover rounded-full w-custom h-custom" />
 		</div>
-		<div class="w-1/2 pl-2">
-			<div class="bg-white text-left text-justify">
+		<div class="w-1/2">
+			<div class="bg-white text-left text-justify rounded-lg px-5">
 				<h2 class="text-2xl font-bold">Jiani-Abert</h2>
 				<br />
 				<p>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-	name: 'squareProfil',
+	name: 'SquareProfil',
 }
 </script>
 
@@ -30,10 +30,13 @@ export default {
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
+.profil {
+	width: 50%;
+}
 .w-custom {
-	width: 35vh;
+	width: 40vh;
 }
 .h-custom {
-	height: 35vh;
+	height: 40vh;
 }
 </style>
