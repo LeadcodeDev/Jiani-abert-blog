@@ -1,24 +1,25 @@
 <template>
 	<div>
-		<client-only>
-			<LangSwitcher />
-		</client-only>
+		<Navbar/>
 		<Nuxt />
 	</div>
 </template>
 
 <script>
-import LangSwitcher from '~/components/LangSwitcher'
+
+import NavbarVue from '@/components/Navbar.vue'
 
 export default {
 	name: 'master',
-	components: { LangSwitcher },
+	components: { Navbar: NavbarVue},
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 body {
 	width: 100%;
 	min-height: 100%;
 }
+
+
 </style>

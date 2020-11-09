@@ -1,35 +1,29 @@
 <template>
-	<div class="main">
-		<h1 v-html="$t('welcome')"></h1>
-		<p>{{ $t('description') }}</p>
+	<div>
+		<div class="relative calculed">
+			<Header />
+		</div>
+		<div class="relative">
+			<Card />
+		</div>
 	</div>
 </template>
 
 <script>
+import SquareVue from '@/components/SquareProfil.vue'
+import CardVue from '@/components/Card.vue'
+
 export default {
 	layout: 'master',
+	components: {
+		Header: SquareVue,
+		Card: CardVue,
+	},
 }
 </script>
 
-<style>
-.main {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 40%;
-	margin: auto;
-}
-img {
-	width: 100%;
-}
-h1 {
-	text-align: center;
-}
-p {
-	margin: auto;
-	text-align: center;
-	opacity: 0.5;
-	width: 80%;
+<style lang="scss">
+.calculed {
+	height: calc(100vh - 48px);
 }
 </style>
