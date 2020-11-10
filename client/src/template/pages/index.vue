@@ -4,7 +4,7 @@
 			<Header class="profil rounded-lg" />
 		</div>
 		<div class="relative flex flex-wrap p-64">
-			<Card v-for="(n, key) in 9" class="w-1/3 p-2" :key="key" />
+			<Card v-for="(poeme, key) in poemes" :poeme="poeme" class="w-1/3 p-2" :key="key" />
 		</div>
 		<div class="relative flex">
 			<Citation />
@@ -19,9 +19,18 @@
 import SquareVue from '@/components/SquareProfil.vue'
 import CardVue from '@/components/Card.vue'
 import CitationVue from '@/components/Citation.vue'
+import { computed, useContext } from '@nuxtjs/composition-api'
 
 export default {
 	layout: 'master',
+
+	setup() {
+		const { store } = useContext()
+		store.dispatch('poemes/INDEX')
+		const poemes = computed(() => store.state.poemes.data)
+		return { poemes }
+	},
+
 	components: {
 		Header: SquareVue,
 		Card: CardVue,

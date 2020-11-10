@@ -1,5 +1,3 @@
-import { onUpdated } from '~/build/composition-api'
-
 export const state = () => ({
 	data: [],
 	item: {},
