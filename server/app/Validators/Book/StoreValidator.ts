@@ -2,33 +2,30 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class StoreValidator {
-  constructor (private ctx: HttpContextContract) {
-  }
+	constructor(private ctx: HttpContextContract) {}
 
-  /**
-   * Defining a schema to validate the "shape", "type", "formatting" and "integrity" of data.
-   *
-   * For example:
-   * 1. The username must be of data type string. But then also, it should
-   *    not contain special characters or numbers.
-   *    ```
-   *     schema.string({}, [ rules.alpha() ])
-   *    ```
-   *
-   * 2. The email must be of data type string, formatted as a valid
-   *    email. But also, not used by any other user.
-   *    ```
-   *     schema.string({}, [
-   *       rules.email(),
-   *       rules.unique({ table: 'users', column: 'email' }),
-   *     ])
-   *    ```
-   */
-  public schema = schema.create({
+	/**
+	 * Defining a schema to validate the "shape", "type", "formatting" and "integrity" of data.
+	 *
+	 * For example:
+	 * 1. The username must be of data type string. But then also, it should
+	 *    not contain special characters or numbers.
+	 *    ```
+	 *     schema.string({}, [ rules.alpha() ])
+	 *    ```
+	 *
+	 * 2. The email must be of data type string, formatted as a valid
+	 *    email. But also, not used by any other user.
+	 *    ```
+	 *     schema.string({}, [
+	 *       rules.email(),
+	 *       rules.unique({ table: 'users', column: 'email' }),
+	 *     ])
+	 *    ```
+	 */
+	public schema = schema.create({
 		label: schema.string({ trim: true }),
-		description: schema.string({ trim: true }),
-		
-		
+		description: schema.string({ trim: true })
 	})
 
 	/**
@@ -52,7 +49,9 @@ export default class StoreValidator {
 	 * }
 	 */
 	public messages = {
-		"label.required": "Le champ label est obligatoire",
-	  	"label.string": "Le champ label doit être du texte",
+		'label.required': 'Le champ label est obligatoire',
+		'label.string': 'Le champ label doit être du texte',
+		'description.required': 'Le champ description est obligatoire',
+		'description.string': 'Le champ description doit être du texte'
 	}
 }

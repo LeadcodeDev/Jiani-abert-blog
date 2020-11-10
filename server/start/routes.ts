@@ -32,24 +32,27 @@ Route.group(() => {
 
 	Route.resource('cookies', 'CookiesController').apiOnly().only(['show', 'store'])
 
-	Route.resource('books', 'BooksController').apiOnly().middleware({ 
+	Route.resource('poemes', 'PoèmesController').apiOnly().middleware({
 		// store: [ 'auth'],
 		// edit: [ 'auth'],
 		// destroy: [ 'auth']
 	})
 
-	Route.resource('parts', 'PartsController').apiOnly().middleware({ 
+	Route.resource('books', 'BooksController').apiOnly().middleware({
 		// store: [ 'auth'],
 		// edit: [ 'auth'],
 		// destroy: [ 'auth']
 	})
 
-	Route.resource('chapters', 'ChaptersController').apiOnly().middleware({ 
+	Route.resource('parts', 'PartsController').apiOnly().middleware({
 		// store: [ 'auth'],
 		// edit: [ 'auth'],
 		// destroy: [ 'auth']
 	})
 
-
-
+	Route.resource('chapters', 'ChaptersController').apiOnly().middleware({
+		// store: [ 'auth'],
+		// edit: [ 'auth'],
+		// destroy: [ 'auth']
+	})
 }).prefix('/api')

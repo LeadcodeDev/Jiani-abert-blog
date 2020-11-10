@@ -9,20 +9,12 @@
 			</div>
 		</main>
 		<div class="px-8 mt-6">
-			<div class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded">
-				<p>1</p>
-				<p>HTML</p>
+			<div v-for="(poeme, key) in poemes" class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded" :key="key">
+				<p>{{ poeme.id }}</p>
+				<p>{{ poeme.title }}</p>
 				<div class="flex flex-row">
-					<nuxt-link :to="'/dashboard/poème/' + 1" class="bg-blue-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-blue-500"><i class="icon-pencil text-red"></i></nuxt-link>
-					<button to="/" class="bg-red-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-red-500"><i class="icon-trash text-white-500 bg-red-500"></i></button>
-				</div>
-			</div>
-			<div class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded">
-				<p>1</p>
-				<p>HTML</p>
-				<div class="flex flex-row">
-					<nuxt-link :to="'/dashboard/poème/' + 2" class="bg-blue-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-blue-500"><i class="icon-pencil text-red"></i></nuxt-link>
-					<button class="bg-red-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-red-500"><i class="icon-trash text-white-500 bg-red-500"></i></button>
+					<nuxt-link :to="'/dashboard/poème/' + poeme.id" class="bg-blue-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-blue-500"><i class="icon-pencil text-red"></i></nuxt-link>
+					<button @click.prevent="handleDelete(poeme.id)" class="bg-red-600 text-white mx-1 px-2 py-1 rounded-md hover:bg-red-500"><i class="icon-trash text-white-500 bg-red-500"></i></button>
 				</div>
 			</div>
 		</div>
@@ -30,8 +22,22 @@
 </template>
 
 <script>
+import { computed, useContext } from '@nuxtjs/composition-api'
 export default {
 	layout: 'dashboard',
+	setup() {
+		const { store } = useContext()
+		// récupérer données
+		store.dispatch('poemes/INDEX')
+
+		const poemes = computed(() => store.state.poemes.data)
+
+		async function handleDelete(id) {
+			await store.dispatch('poemes/DELETE', id)
+		}
+
+		return { poemes, handleDelete }
+	},
 }
 </script>
 

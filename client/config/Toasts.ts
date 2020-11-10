@@ -11,7 +11,8 @@ const configuration: configuration = {
 }
 
 export default {
-	position: 'top-center',
+	position: configuration.position,
+	duration: configuration.duration,
 	register: [
 		{
 			name: 'error',

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Chapter extends BaseModel {
+export default class Poème extends BaseModel {
 	@column({ isPrimary: true })
 	public id: number
 
@@ -10,9 +10,6 @@ export default class Chapter extends BaseModel {
 
 	@column()
 	public content: string
-
-	@column()
-	public partId: number
 
 	@column.dateTime({ autoCreate: true })
 	public createdAt: DateTime

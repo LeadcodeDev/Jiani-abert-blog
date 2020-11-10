@@ -5,4 +5,5 @@
 export default {
 	baseURL: 'http://localhost:3333/api',
 	credentials: true,
+	progress: false,
 }
