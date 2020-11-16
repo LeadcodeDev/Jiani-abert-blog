@@ -1,12 +1,12 @@
 <template>
 	<main class="calculed-height py-5">
-		<div class="w-10/11 mx-auto">
+		<div class="w-10/11 mx-auto pb-20">
 			<div class="relative mx-auto">
 				<div class="w-2/3 mx-auto">
 					<h1 class="p-5 text-6xl text-blue-500">Mes Poèmes</h1>
 				</div>
 				<div class="flex flex-wrap relative mx-auto w-2/3 text-center">
-					<CardPoeme class="rounded-lg p-5 w-1/3" v-for="(poeme, key) in poemes" :poeme="poeme" :key="key" />
+					<CardPoeme class="rounded-lg px-6 w-1/3" v-for="(poeme, key) in poemes" :poeme="poeme" :key="key" />
 				</div>
 			</div>
 		</div>

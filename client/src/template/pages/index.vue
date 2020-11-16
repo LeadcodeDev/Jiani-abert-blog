@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<img src="@/public/images/accueil.jpg" class="absolute object-cover h-home w-full bg-aqua absolute" alt="" />
+		<!-- <img src="@/public/images/accueil.jpg" class="absolute object-cover h-home w-full bg-aqua absolute" alt="" /> -->
+		<div class="absolute object-cover h-home w-full bg-blue-300 absolute"></div>
+
 		<div class="relative calculedHead mx-auto md:text-center">
 			<Header class="bg-white rounded-lg" />
 		</div>
