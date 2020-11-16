@@ -55,4 +55,10 @@ Route.group(() => {
 		// edit: [ 'auth'],
 		// destroy: [ 'auth']
 	})
+
+	Route.resource('pictures', 'PicturesController').apiOnly().middleware({
+		// store: [ 'auth'],
+		// edit: [ 'auth'],
+		// destroy: [ 'auth']
+	})
 }).prefix('/api')

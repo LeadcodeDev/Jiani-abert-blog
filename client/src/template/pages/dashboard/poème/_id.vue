@@ -8,16 +8,16 @@
 				</div>
 			</div>
 		</main>
-		<div class="flex items-center h-screen justify-center w-full bg-teal-lighter">
+		<div class="flex justify-center w-full bg-teal-lighter">
 			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
-				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Créer un livre</h1>
+				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Créer un poème</h1>
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
-						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du livre</label>
+						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du poème</label>
 						<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="title" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
-						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Résumé du livre</label>
+						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Contenu du poème</label>
 						<textarea rows="5" class="border px-3 text-grey-darkest" id="email" v-model="content" />
 					</div>
 				</form>

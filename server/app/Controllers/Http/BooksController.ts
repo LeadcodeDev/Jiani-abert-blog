@@ -16,7 +16,7 @@ export default class BooksController {
 		return await Book.query()
 			.where('id', params.id)
 			.preload('parts', (part) => part.preload('chapters'))
-			.orderBy('id', 'desc')
+			.orderBy('id', 'asc')
 			.firstOrFail()
 	}
 
@@ -33,8 +33,8 @@ export default class BooksController {
 		const data = await request.validate(UpdateValidator)
 
 		await book.merge(data).save()
-		await book.preload('parts', (post) => {
-			post.orderBy('created_at', 'desc')
+		await book.preload('parts', (part) => {
+			part.orderBy('created_at', 'desc')
 		})
 
 		return book

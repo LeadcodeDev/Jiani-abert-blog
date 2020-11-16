@@ -3,23 +3,26 @@
 		<main class="flex relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
 			<div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 w-screen">
 				<div class="flex justify-between w-full">
-					<h1 class="flex text-lg font-medium text-gray-900">Livres</h1>
+					<h1 class="flex text-lg font-medium text-gray-900">Chapitre</h1>
 					<!-- @click.prevent permet de supprimer le comportement par d"fault du bouton, ne recharge pas la page -->
-					<button to="/dashboard/book/create" class="flex rounded-lg cursor-pointer hover:bg-orange-600 transition duration-150 ease-in-out bg-orange-500 px-5 py-2 font-bold text-white" @click.prevent="handleSubmit">Sauvegarder</button>
+					<button class="flex rounded-lg cursor-pointer hover:bg-orange-600 transition duration-150 ease-in-out bg-orange-500 px-5 py-2 font-bold text-white" @click.prevent="handleSubmit">Sauvegarder</button>
 				</div>
 			</div>
 		</main>
-		<div class="flex items-center h-screen justify-center w-full bg-teal-lighter">
+		<div class="flex justify-center w-full bg-teal-lighter">
 			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
-				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Créer un livre</h1>
+				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Créer un chapitre</h1>
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
-						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du livre</label>
-						<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="state.label" />
+						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du chapitre</label>
+						<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="state.title" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
-						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Résumé du livre</label>
-						<textarea rows="5" class="border px-3 text-grey-darkest" id="email" v-model="state.description" />
+						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Contenu de mon chapitre</label>
+						<textarea rows="5" class="border px-3 text-grey-darkest" id="email" v-model="state.content" />
+					</div>
+					<div class="flex flex-col mb-4 md:w-full text-center">
+						<v-select label="label" :options="parts" v-model="state.part_id" :reduce="(part) => part.id"></v-select>
 					</div>
 				</form>
 			</div>
@@ -28,25 +31,36 @@
 </template>
 
 <script>
-import { reactive, useContext } from '@nuxtjs/composition-api' // import de fonction, permet d'utiliser des hooks de vuejs3
+import { reactive, useContext, computed } from '@nuxtjs/composition-api'
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css'
 
 export default {
 	layout: 'dashboard',
+	components: {
+		'v-select': vSelect,
+	},
 
-	// function disponible depuis vue3 qui permet de regrouper tout le code d'une même fonctionnalité au même endroit
 	setup() {
 		const { store } = useContext()
 		const state = reactive({
 			label: '',
 			description: '',
+			part_id: 0,
 		})
 
-		//event de validation
+		store.dispatch('parts/INDEX')
+
+		const parts = computed(() => store.state.parts.data)
+
+		const part = computed({
+			get: () => store.state.parts.item.part_id,
+		})
 		async function handleSubmit() {
-			await store.dispatch('books/STORE', state)
+			await store.dispatch('chapters/STORE', state)
 		}
 
-		return { state, handleSubmit }
+		return { state, handleSubmit, part, parts }
 	},
 }
 </script>

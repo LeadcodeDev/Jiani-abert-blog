@@ -11,7 +11,7 @@
 			<div class="pt-10 h-0 flex-1 flex flex-col overflow-y-auto">
 				<nav class="px-3 mt-6">
 					<div class="space-y-1">
-						<nuxt-link to="/dashboard" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-900 bg-gray-200 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+						<nuxt-link to="/dashboard" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-900 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
 							<svg class="mr-3 h-6 w-6 text-gray-500 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path
 									stroke-linecap="round"
@@ -23,31 +23,39 @@
 							Home
 						</nuxt-link>
 
-						<nuxt-link
-							to="/dashboard/poème"
-							class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
-						>
+						<nuxt-link to="/dashboard/poème" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
 							<!-- Heroicon name: view-list -->
 							<svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
 							</svg>
-							poèmes
+							Poème
 						</nuxt-link>
-						<nuxt-link
-							to="/dashboard/book"
-							class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150"
-						>
+						<nuxt-link to="/dashboard/book" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
 							<!-- Heroicon name: view-list -->
 							<svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
 							</svg>
-							livres
+							Livre
+						</nuxt-link>
+						<nuxt-link to="/dashboard/part" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
+							<!-- Heroicon name: view-list -->
+							<svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+							</svg>
+							Partie
+						</nuxt-link>
+						<nuxt-link to="/dashboard/chapter" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
+							<!-- Heroicon name: view-list -->
+							<svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+							</svg>
+							Chapitre
 						</nuxt-link>
 					</div>
 				</nav>
 			</div>
 		</div>
-		<div class="flex flex-col w-0 flex-1 overflow-hidden">
+		<div class="flex flex-col w-0 flex-1 overflow-y-scroll">
 			<div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
 				<button class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 lg:hidden" aria-label="Open sidebar">
 					<svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,17 +1,24 @@
 <template>
 	<div>
-		<Navbar/>
+		<Navbar />
+
 		<Nuxt />
+		<div class="">
+			<Footer />
+		</div>
 	</div>
 </template>
 
 <script>
-
 import NavbarVue from '@/components/Navbar.vue'
+import FooterVue from '@/components/Footer.vue'
 
 export default {
 	name: 'master',
-	components: { Navbar: NavbarVue},
+	components: {
+		Navbar: NavbarVue,
+		Footer: FooterVue,
+	},
 }
 </script>
 
@@ -20,6 +27,4 @@ body {
 	width: 100%;
 	min-height: 100%;
 }
-
-
 </style>

@@ -1,16 +1,23 @@
 <template>
 	<div>
-		<div class="relative calculed">
-			<Header class="profil rounded-lg" />
+		<img src="@/public/images/accueil.jpg" class="absolute object-cover h-home w-full bg-aqua absolute" alt="" />
+		<div class="relative calculedHead mx-auto md:text-center">
+			<Header class="bg-white rounded-lg" />
 		</div>
-		<div class="relative flex flex-wrap p-64">
-			<Card v-for="(poeme, key) in poemes" :poeme="poeme" class="w-1/3 p-2" :key="key" />
+		<div class="relative mb-12 mx-auto flex flex-wrap width-perso">
+			<Card class="text-center" v-for="(poeme, key) in poemes" :poeme="poeme" :key="key" />
 		</div>
-		<div class="relative flex">
-			<Citation />
-		</div>
-		<div class="pt-10 justify-center text-center pb-10 bg-black">
-			<nuxt-link to="/authentication/login" class="rounded-lg cursor-pointer hover:text-blue-600 bg-orange-500 px-3 py-1">Connexion </nuxt-link>
+
+		<div class="relative justify-center">
+			<div class="justify-center flex">
+				<div class="flex border-t-2 border-gray-600 justify-center width-hr"></div>
+			</div>
+			<div class="mx-auto py-10">
+				<Citation />
+			</div>
+			<div class="justify-center flex">
+				<div class="flex border-t-2 border-gray-600 justify-center mb-32 width-hr"></div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -19,14 +26,17 @@
 import SquareVue from '@/components/SquareProfil.vue'
 import CardVue from '@/components/Card.vue'
 import CitationVue from '@/components/Citation.vue'
-import { computed, useContext } from '@nuxtjs/composition-api'
+import { computed, useAsync, useContext } from '@nuxtjs/composition-api'
 
 export default {
 	layout: 'master',
 
 	setup() {
 		const { store } = useContext()
-		store.dispatch('poemes/INDEX')
+		useAsync(async () => {
+			await store.dispatch('poemes/INDEX')
+		})
+
 		const poemes = computed(() => store.state.poemes.data)
 		return { poemes }
 	},
@@ -40,10 +50,19 @@ export default {
 </script>
 
 <style lang="scss">
-.calculed {
-	height: calc(100vh - 48px);
+.h-home {
+	height: 70vh;
 }
-.profil {
-	background-color: white;
+
+.calculedHead {
+	height: calc(60vh - 48px);
+}
+
+.width-perso {
+	width: 1290px;
+}
+
+.width-hr {
+	width: 66%;
 }
 </style>

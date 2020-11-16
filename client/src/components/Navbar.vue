@@ -1,12 +1,16 @@
 <template>
-	<div class="sticky z-30 top-0 flex w-full px-5 py-2 text-white bg-black justify-center items-center space-x-48">
-		<div class="flex pr-48">
-			<nuxt-link to="/">JianiBlog</nuxt-link>
-		</div>
-		<div class="flex space-x-12 pl-40">
-			<nuxt-link to="/" class="rounded-lg cursor-pointer hover:text-blue-600 bg-orange-500 px-3 py-1">Boutton</nuxt-link>
-			<nuxt-link to="/" class="rounded-lg cursor-pointer hover:text-blue-600 bg-orange-500 px-3 py-1">Boutton</nuxt-link>
-			<nuxt-link to="/" class="rounded-lg cursor-pointer hover:text-blue-600 bg-orange-500 px-3 py-1">Boutton </nuxt-link>
+	<div class="sticky justify-between text-center z-30 top-0 flex w-full px-5 py-2 text-white bg-blue-500 items-center">
+		<div class="flex w-4/6 mx-auto">
+			<div class="flex w-full justify-between">
+				<div class="flex">
+					<nuxt-link to="/" class="text-xl">JianiBlog</nuxt-link>
+				</div>
+				<div class="flex space-x-12">
+					<nuxt-link to="/poemes" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Poème</nuxt-link>
+					<nuxt-link to="/books" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Livre</nuxt-link>
+					<nuxt-link to="/" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Boutton </nuxt-link>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

@@ -3,13 +3,13 @@ import Poème from 'App/Models/Poème'
 import StoreValidator from 'App/Validators/Poème/StoreValidator'
 import UpdateValidator from 'App/Validators/Poème/UpdateValidator'
 
-export default class ChaptersController {
+export default class PoèmesController {
 	public async index() {
 		return await Poème.query().orderBy('id', 'asc')
 	}
 
 	public async show({ params }: HttpContextContract) {
-		return await Poème.query().where('id', params.id).orderBy('id', 'desc').firstOrFail()
+		return await Poème.query().where('id', params.id).orderBy('id', 'asc').firstOrFail()
 	}
 
 	public async store({ request }: HttpContextContract) {

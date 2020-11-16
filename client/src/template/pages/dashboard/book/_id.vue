@@ -9,7 +9,7 @@
 				</div>
 			</div>
 		</main>
-		<div class="flex items-center h-screen justify-center w-full bg-teal-lighter">
+		<div class="flex justify-center w-full bg-teal-lighter">
 			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
 				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Créer un livre</h1>
 				<form class="mb-4" action="/" method="post">

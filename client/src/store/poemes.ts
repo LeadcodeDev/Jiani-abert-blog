@@ -74,7 +74,6 @@ export const actions = {
 			await this.$axios.delete('/poemes/' + payload)
 			// supprime en State la donnée
 			commit('delete', payload)
-			this.$router.push('/dashboard/poème')
 			this.$toast.success('Le poème a bien été supprimé ✔')
 		} catch (error) {
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
