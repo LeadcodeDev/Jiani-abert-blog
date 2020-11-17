@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import { schema } from '@ioc:Adonis/Core/Validator'
 
 export default class StoreValidator {
 	constructor(private ctx: HttpContextContract) {}
@@ -24,8 +24,11 @@ export default class StoreValidator {
 	 *    ```
 	 */
 	public schema = schema.create({
-		filename: schema.string({ trim: true }),
-		label: schema.string({ trim: true })
+		picture: schema.file({
+			size: '10mb',
+			extnames: ['jpg', 'png', 'jpeg']
+		}),
+		module: schema.string({ trim: true })
 	})
 
 	/**
@@ -49,9 +52,8 @@ export default class StoreValidator {
 	 * }
 	 */
 	public messages = {
-		'filename.required': 'Le champ filename est obligatoire',
-		'filename.string': 'Le champ filename doit être du texte',
-		'label.required': "L'image est obligatoire",
-		'label.string': "L'image doit être au format JPEG/PNG"
+		'picture.required': "L'image est obligatoire",
+		'picture.extnames': "L'image doit être au format JPEG/PNG/JPG",
+		'picture.files': 'Le champ doit être une image'
 	}
 }

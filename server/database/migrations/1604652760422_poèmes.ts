@@ -6,8 +6,8 @@ export default class Poème extends BaseSchema {
 	public async up() {
 		this.schema.createTable(this.tableName, (table) => {
 			table.increments('id').primary()
-			table.string('title', 180).notNullable()
-			table.string('content', 180).notNullable()
+			table.string('title').notNullable()
+			table.text('content').notNullable()
 			table.timestamps(true, true)
 		})
 	}

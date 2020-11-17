@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class UpdateValidator {
 	constructor(private ctx: HttpContextContract) {}
@@ -24,8 +24,14 @@ export default class UpdateValidator {
 	 *    ```
 	 */
 	public schema = schema.create({
-		title: schema.string({ trim: true }),
-		content: schema.string({ trim: true })
+		title: schema.string.optional({ trim: true }),
+		content: schema.string.optional({ trim: true }),
+		pictureId: schema.number.optional([
+			rules.exists({
+				column: 'id',
+				table: 'pictures'
+			})
+		])
 	})
 
 	/**

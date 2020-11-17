@@ -3,13 +3,13 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Book from 'App/Models/Book'
 import StoreValidator from 'App/Validators/Book/StoreValidator'
 import UpdateValidator from 'App/Validators/Book/UpdateValidator'
-import authConfig from 'config/auth'
 
 export default class BooksController {
 	public async index() {
 		return await Book.query()
 			.preload('parts', (part) => part.preload('chapters'))
 			.orderBy('id', 'asc')
+			.preload('picture')
 	}
 
 	public async show({ params }: HttpContextContract) {
@@ -24,6 +24,7 @@ export default class BooksController {
 		const data = await request.validate(StoreValidator)
 		const book = await Book.create(data)
 		await book.preload('parts')
+		await book.preload('picture')
 
 		return book
 	}
@@ -36,6 +37,7 @@ export default class BooksController {
 		await book.preload('parts', (part) => {
 			part.orderBy('created_at', 'desc')
 		})
+		await book.preload('picture')
 
 		return book
 	}

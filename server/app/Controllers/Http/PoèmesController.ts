@@ -5,7 +5,7 @@ import UpdateValidator from 'App/Validators/Poème/UpdateValidator'
 
 export default class PoèmesController {
 	public async index() {
-		return await Poème.query().orderBy('id', 'asc')
+		return await Poème.query().orderBy('id', 'asc').preload('picture')
 	}
 
 	public async show({ params }: HttpContextContract) {
@@ -16,6 +16,7 @@ export default class PoèmesController {
 		const data = await request.validate(StoreValidator)
 		const poème = await Poème.create(data)
 
+		await poème.preload('picture')
 		return poème
 	}
 
@@ -23,6 +24,8 @@ export default class PoèmesController {
 		const poème = await Poème.query().where('id', params.id).firstOrFail()
 		const data = await request.validate(UpdateValidator)
 		await poème.merge(data).save()
+
+		await poème.preload('picture')
 
 		return poème
 	}

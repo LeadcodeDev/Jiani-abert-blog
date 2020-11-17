@@ -26,7 +26,8 @@ export default class UpdateValidator {
 	public schema = schema.create({
 		title: schema.string.optional({ trim: true }),
 		content: schema.string.optional({ trim: true }),
-		part_id: schema.number.optional()
+		partId: schema.number.optional(),
+		publishedAt: schema.date.optional()
 	})
 
 	/**
@@ -50,9 +51,7 @@ export default class UpdateValidator {
 	 * }
 	 */
 	public messages = {
-		'title.required': 'Le champ label est obligatoire',
-		'title.string': 'Le champ label doit être du texte',
-		'content.required': 'Le champ content doit être du obligatoire',
-		'content.string': 'Le champ content doit être du texte'
+		'title.string': 'Le champ titre doit être du texte',
+		'content.string': 'Le champ contenu doit être du texte'
 	}
 }

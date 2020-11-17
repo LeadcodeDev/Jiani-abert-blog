@@ -25,7 +25,13 @@ export default class StoreValidator {
 	 */
 	public schema = schema.create({
 		label: schema.string({ trim: true }),
-		description: schema.string({ trim: true })
+		description: schema.string({ trim: true }),
+		pictureId: schema.number([
+			rules.exists({
+				column: 'id',
+				table: 'pictures'
+			})
+		])
 	})
 
 	/**

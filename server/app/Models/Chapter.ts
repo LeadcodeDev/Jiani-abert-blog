@@ -15,6 +15,9 @@ export default class Chapter extends BaseModel {
 	@column()
 	public partId: number
 
+	@column.dateTime()
+	public publishedAt: DateTime
+
 	@column.dateTime({ autoCreate: true })
 	public createdAt: DateTime
 

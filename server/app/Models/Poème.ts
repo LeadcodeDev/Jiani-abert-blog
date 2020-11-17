@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import Picture from 'App/Models/Picture'
 
 export default class Poème extends BaseModel {
 	@column({ isPrimary: true })
@@ -11,9 +12,15 @@ export default class Poème extends BaseModel {
 	@column()
 	public content: string
 
+	@column()
+	public pictureId: number
+
 	@column.dateTime({ autoCreate: true })
 	public createdAt: DateTime
 
 	@column.dateTime({ autoCreate: true, autoUpdate: true })
 	public updatedAt: DateTime
+
+	@belongsTo(() => Picture)
+	public picture: BelongsTo<typeof Picture>
 }

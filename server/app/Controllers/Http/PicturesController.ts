@@ -2,7 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Picture from 'App/Models/Picture'
 import StoreValidator from 'App/Validators/Picture/StoreValidator'
 import UpdateValidator from 'App/Validators/Picture/UpdateValidator'
-
+import Application from '@ioc:Adonis/Core/Application'
 
 export default class PicturesController {
 	public async index({}: HttpContextContract) {
@@ -15,9 +15,23 @@ export default class PicturesController {
 
 	public async store({ request }: HttpContextContract) {
 		const data = await request.validate(StoreValidator)
-		const picture = await Picture.create(data)
 
-		return picture
+		// avoir le même timestamp pour le nom du fichier stocker et le nom du fichier en bdd
+		const timestamp = Date.now()
+
+		// sauvegarde image sur disque
+
+		console.log(data.picture)
+
+		await data.picture?.move(Application.makePath(`../storage/uploads/${data.module}`), {
+			name: `${timestamp}.${data.picture.extname}`
+		})
+
+		// création image BDD plus return
+		return await Picture.create({
+			filename: `${timestamp}.${data.picture.extname}`,
+			label: data.picture.clientName
+		})
 	}
 
 	public async update({ params, request }: HttpContextContract) {
@@ -33,6 +47,5 @@ export default class PicturesController {
 		await picture.delete()
 
 		return { message: 'Picture has been deleted' }
-	}
 	}
 }

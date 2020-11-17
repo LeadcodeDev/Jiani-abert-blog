@@ -1,7 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
-import Schema from '@ioc:Adonis/Lucid/Schema'
-import { DateTime } from 'luxon'
 
 export default class StoreValidator {
 	constructor(private ctx: HttpContextContract) {}
@@ -34,7 +32,8 @@ export default class StoreValidator {
 				column: 'id',
 				table: 'parts'
 			})
-		])
+		]),
+		publishedAt: schema.date()
 	})
 
 	/**
@@ -58,9 +57,10 @@ export default class StoreValidator {
 	 * }
 	 */
 	public messages = {
-		'title.required': 'Le champ label est obligatoire',
-		'title.string': 'Le champ label doit être du texte',
+		'title.required': 'Le champ titre est obligatoire',
+		'title.string': 'Le champ titre doit être du texte',
 		'content.required': 'Le champ content doit être du texte',
-		'content.string': 'Le champ content doit être du texte'
+		'content.string': 'Le champ content doit être du texte',
+		'publishedAt.required': 'Le champ publishedAt doit être du obligatoire'
 	}
 }

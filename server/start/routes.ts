@@ -19,6 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import Application from '@ioc:Adonis/Core/Application'
 
 Route.group(() => {
 	Route.resource('users', 'UsersController').apiOnly().middleware({})
@@ -60,5 +61,10 @@ Route.group(() => {
 		// store: [ 'auth'],
 		// edit: [ 'auth'],
 		// destroy: [ 'auth']
+	})
+
+	// récupérer une ou plusieurs images
+	Route.get('/uploads/:module/:filename', async ({ response, params }) => {
+		response.download(Application.makePath(`../storage/uploads/${params.module}`, params.filename))
 	})
 }).prefix('/api')
