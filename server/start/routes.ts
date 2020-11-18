@@ -25,8 +25,8 @@ Route.group(() => {
 	Route.resource('users', 'UsersController').apiOnly().middleware({})
 	Route.get('/authentication/user/me', 'AuthController.user').middleware('auth')
 
-	Route.post('/authentication/api/login', 'AuthController.loginApi')
-	Route.post('/authentication/api/logout', 'AuthController.logoutApi').middleware('auth')
+	// Route.post('/authentication/api/login', 'AuthController.loginApi')
+	// Route.post('/authentication/api/logout', 'AuthController.logoutApi').middleware('auth')
 
 	Route.post('/authentication/web/login', 'AuthController.loginWeb')
 	Route.post('/authentication/web/logout', 'AuthController.logoutWeb').middleware('auth')

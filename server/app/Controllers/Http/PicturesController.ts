@@ -21,8 +21,7 @@ export default class PicturesController {
 
 		// sauvegarde image sur disque
 
-		console.log(data.picture)
-
+		// si une image est utiliser pour un livre par exemple, alors un dossier livre sera crée dans storage/uploads
 		await data.picture?.move(Application.makePath(`../storage/uploads/${data.module}`), {
 			name: `${timestamp}.${data.picture.extname}`
 		})
