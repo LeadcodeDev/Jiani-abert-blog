@@ -1,14 +1,24 @@
 <template>
 	<main class="calculed-height">
-		<div class="flex justify-center w-full bg-teal-lighter">
-			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
-				<div class="flex flex-col mb-4 md:w-full">
-					<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du livre</label>
-					<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="label" />
+		<div class="flex justify-center w-full bg-teal-lighter centered">
+			<div class="w-1/4 bg-orange-300 rounded shadow-lg">
+				<div class="w-3/4 mx-auto">
+					<div class="flex flex-col mb-4 text-center text-3xl p-10">
+						<p>Mon premier livre</p>
+					</div>
+					<div class="flex flex-col mb-4 text-left">
+						<p>
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+							make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+							containing Lorem Ipsum passages, af ezf zf zf zf zf fefz fz zef zefz f z fzfzef centuries, but also the leap into electronic type centuries, but also the leap into electronic type centuries, but also the leap into
+							electronic type centuries, but also the leap into electronic type cento electronic type zfzfzf zf zfz fzf ezfzer ger erg er egioejgier jgiergwith desktop publishing software like Aldus PageMaker including versions of Lorem
+							Ipsum
+						</p>
+					</div>
 				</div>
-				<div class="flex flex-col mb-4 md:w-full text-center">
-					<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Description du livre</label>
-					<textarea rows="5" class="border px-3 text-grey-darkest" id="email" v-model="description" />
+
+				<div class="flex-end flex justify-end pt-16 py-4 pr-2">
+					<nuxt-link to="" class="rounded-lg bg-blue-500 cursor-pointer hover:text-white px-3 py-1 flex">Chapitre </nuxt-link>
 				</div>
 			</div>
 		</div>
@@ -41,6 +51,13 @@ export default {
 
 <style>
 .calculed-height {
-	min-height: calc(100vh - 232px - 48px);
+	min-height: calc(100vh - 48px);
+}
+
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 </style>

@@ -33,6 +33,12 @@ export const mutations = {
 		state.data[state.data.indexOf(book)] = state.item
 	},
 
+	updatePicture(state: { data: Array<any>; item: any }, payload: any) {
+		const book = state.data.find((book) => book.id == state.item.id)
+		state.data[state.data.indexOf(book)] = payload
+		state.item = payload
+	},
+
 	_UPDATE_LABEL(state: { item: any }, payload: any) {
 		state.item.label = payload
 	},
@@ -59,9 +65,18 @@ export const actions = {
 	async STORE(this: any, { state, commit }: any, payload: any) {
 		try {
 			//stockage
-			const { data } = await this.$axios.post('/books', payload)
+			//stockage, transfert file picture
+			const formData = new FormData()
+			formData.append('picture', payload.picture)
+			formData.append('module', 'book')
+
+			// on récupère la picture
+			const { data } = await this.$axios.post('/pictures', formData)
+			// on crée le poème en ajoutant l'id de l'image
+			const { data: book } = await this.$axios.post('/books', { ...payload, pictureId: data.id })
+
 			// envoie les  nouvelles données vers les mutations
-			commit('store', data)
+			commit('store', book)
 			this.$router.push('/dashboard/book')
 			this.$toast.success('Le livre a bien été créé ✔')
 		} catch (error) {
@@ -77,6 +92,23 @@ export const actions = {
 			commit('update', data)
 			this.$router.push('/dashboard/book')
 			this.$toast.success('Le livre a bien été mis à jour ✔')
+		} catch (error) {
+			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
+		}
+	},
+
+	async UPDATE_PICTURE(this: any, { state, commit }: any, payload: any) {
+		try {
+			const formData = new FormData()
+			formData.append('picture', payload)
+			formData.append('module', 'book')
+			const { data } = await this.$axios.post('/pictures', formData)
+
+			const { data: book } = await this.$axios.put('/books/' + state.item.id, { pictureId: data.id })
+
+			// envoie les  nouvelles données vers les mutations
+			commit('updatePicture', book)
+			this.$toast.success("L'image du livre a bien été mis à jour ✔")
 		} catch (error) {
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
 		}

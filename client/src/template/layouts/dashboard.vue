@@ -71,7 +71,7 @@
 <script>
 export default {
 	name: 'dashboard',
-	//middleware: 'auth',
+	middleware: 'auth',
 }
 </script>
 

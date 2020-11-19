@@ -1,7 +1,7 @@
 <template>
 	<div class="w-1/3 p-2 relative align-center">
-		<div class="w-full overflow-hidden rounded-lg">
-			<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-2 hover:scale-110" alt="Sunset in the mountains" />
+		<div class="w-full h-64 overflow-hidden rounded-lg">
+			<img :src="`http://localhost:3333/api/uploads/poeme/${poeme.picture.filename}`" class="w-full h-full transition object-cover duration-500 ease-in-out transform hover:-translate-y-2 hover:scale-110" alt="Sunset in the mountains" />
 		</div>
 		<div class="py-2">
 			<div class="flex px-1 mb-2 justify-between">
@@ -29,4 +29,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>

@@ -1,25 +1,21 @@
 <template>
 	<div>
 		<!-- <img src="@/public/images/accueil.jpg" class="absolute object-cover h-home w-full bg-aqua absolute" alt="" /> -->
-		<div class="absolute object-cover h-home w-full bg-blue-300 absolute"></div>
+		<div class="absolute object-cover h-home w-full absolute"></div>
 
 		<div class="relative calculedHead mx-auto md:text-center">
-			<Header class="bg-white rounded-lg" />
+			<Header class="" />
 		</div>
-		<div class="relative mb-12 mx-auto flex flex-wrap width-perso">
+		<div class="relative mb-32 mx-auto flex flex-wrap width-perso">
 			<Card class="text-center" v-for="(poeme, key) in poemes" :poeme="poeme" :key="key" />
 		</div>
 
 		<div class="relative justify-center">
-			<div class="justify-center flex">
-				<div class="flex border-t-2 border-gray-600 justify-center width-hr"></div>
-			</div>
-			<div class="mx-auto py-10">
+			<div class="justify-center flex"></div>
+			<div class="relative mx-auto py-10">
 				<Citation />
 			</div>
-			<div class="justify-center flex">
-				<div class="flex border-t-2 border-gray-600 justify-center mb-32 width-hr"></div>
-			</div>
+			<div class="justify-center flex"></div>
 		</div>
 	</div>
 </template>
@@ -53,11 +49,11 @@ export default {
 
 <style lang="scss">
 .h-home {
-	height: 70vh;
+	height: 72vh;
 }
 
 .calculedHead {
-	height: calc(60vh - 48px);
+	height: calc(70vh - 100px);
 }
 
 .width-perso {

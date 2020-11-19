@@ -24,6 +24,18 @@
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<v-select label="label" :options="parts" v-model="state.part_id" :reduce="(part) => part.id"></v-select>
 					</div>
+					<div class="w-1/2 mx-auto">
+						<label for="label_en" class="block text-sm font-medium leading-5 text-gray-700 text-center">
+							Chapitre créé le :
+						</label>
+						<div class="mt-1 rounded-md shadow-sm">
+							<input
+								type="datetime-local"
+								class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+								v-model="state.publishedAt"
+							/>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -47,15 +59,15 @@ export default {
 			label: '',
 			description: '',
 			part_id: 0,
+			publishedAt: '',
 		})
 
 		store.dispatch('parts/INDEX')
 
 		const parts = computed(() => store.state.parts.data)
 
-		const part = computed({
-			get: () => store.state.parts.item.part_id,
-		})
+		const part = computed(() => store.state.parts.item.part_id)
+
 		async function handleSubmit() {
 			await store.dispatch('chapters/STORE', state)
 		}

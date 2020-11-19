@@ -13,7 +13,7 @@
 		<div class="flex">
 			<div class="flex justify-start flex-wrap w-1/2">
 				<div v-for="(poeme, key) in poemes" class="w-1/3 p-2" :key="key">
-					<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" class="w-full rounded-lg" alt="Sunset in the mountains" />
+					<img :src="`http://localhost:3333/api/uploads/poeme/${poeme.picture.filename}`" class="w-full rounded-lg h-64 object-cover" alt="Sunset in the mountains" />
 					<div class="py-4">
 						<div class="mb-4 text-center">
 							<p class="font-bold text-xl">{{ poeme.title }}</p>
@@ -27,7 +27,7 @@
 			</div>
 			<div class="flex justify-between flex-wrap w-1/2">
 				<div v-for="(book, key) in books" class="rounded w-1/2 p-2" :key="key">
-					<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" class="w-full rounded-lg" alt="Sunset in the mountains" />
+					<img :src="`http://localhost:3333/api/uploads/book/${book.picture.filename}`" class="w-full rounded-lg h-custom-book object-cover" alt="Sunset in the mountains" />
 					<div class="text-center py-4">
 						<div class="mb-2 flex justify-center">
 							<p class="text-lg font-bold">{{ book.label }}</p>
@@ -53,11 +53,6 @@ CardVue
 export default {
 	layout: 'dashboard',
 
-	components: {
-		CardBook: CardBookVue,
-		Card: CardVue,
-	},
-
 	setup() {
 		const { store } = useContext()
 
@@ -81,3 +76,8 @@ export default {
 	},
 }
 </script>
+<style lang="scss">
+.h-custom-book {
+	height: 550px;
+}
+</style>

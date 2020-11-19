@@ -10,8 +10,9 @@
 		</main>
 		<div class="px-8 mt-6">
 			<div v-for="(chapter, key) in chapters" class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded" :key="key">
-				<div>
-					<nuxt-link :to="`/dashboard/part/${chapter.part_id}`">{{ chapter.part.label }} </nuxt-link>
+				<div class="flex">
+					<p class="flex pr-2">Partie :</p>
+					<nuxt-link :to="`/dashboard/part/${chapter.part_id}`" class="hover:text-orange-700">{{ chapter.part.label }} </nuxt-link>
 				</div>
 				<p>{{ chapter.id }}</p>
 				<p>{{ chapter.title }}</p>

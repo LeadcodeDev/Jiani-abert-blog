@@ -10,8 +10,11 @@
 		</main>
 		<div class="px-8 mt-6">
 			<div v-for="(part, key) in parts" class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded" :key="key">
-				<div>
-					<nuxt-link :to="`/dashboard/book/${part.book_id}`">{{ part.book.label }} </nuxt-link>
+				<div class="flex">
+					<p class="flex pr-2">Livre :</p>
+					<nuxt-link class="hover:text-orange-700" :to="`/dashboard/book/${part.book_id}`">
+						{{ part.book.label }}
+					</nuxt-link>
 				</div>
 				<p>{{ part.id }}</p>
 				<p>{{ part.label }}</p>

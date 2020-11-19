@@ -11,7 +11,7 @@
 		</main>
 		<div class="flex justify-center w-full bg-teal-lighter">
 			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
-				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Ma partie</h1>
+				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Modifier ma partie</h1>
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
 						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre de la partie</label>

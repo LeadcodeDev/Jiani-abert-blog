@@ -1,37 +1,21 @@
 <template>
-	<main class="calculed-height relative">
-		<div class="w-4/5 mx-auto flex">
-			<div class="centered flex">
-				<div class="flex mx-auto w-1/2">
-					<div class="flex w-full">
-						<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" class="left flex w-full rounded-l-lg object-cover" alt="Sunset in the mountains" />
-					</div>
+	<main class="calculed-height py-5 back">
+		<div v-if="state.loaded" class="flex justify-center w-full bg-teal-lighter">
+			<div class="w-2/3 flex bg-orange-300 p-5 rounded-lg">
+				<div class="w-1/3 flex justify-center">
+					<img :src="`http://localhost:3333/api/uploads/poeme/${poeme.picture.filename}`" class="object-cover w-1/2 h-48" alt="Sunset in the mountains" />
 				</div>
-				<div class="w-1/2 justify-center flex bg-yellow-600 mx-auto rounded-r-lg">
-					<div class="flex justify-center flex-col font-bold text-3xl w-full pb-10">
-						<div class="w-full">
-							<h1 class="flex justify-center">
-								Jiani Abert
-							</h1>
-							<div class="flex justify-center">
-								<div class="flex border-t-2 border-gray-600 justify-center width-hr"></div>
-							</div>
+				<div class="w-2/3 mx-auto flex flex-col">
+					<div class="font-bold text-3xl pl-4">
+						<h2>Jiani-Abert</h2>
+					</div>
 
-							<div class="justify-center flex">
-								{{ poeme.title }}
-							</div>
-							<div class="flex flex-wrap mb-4 w-full mx-auto text-center">
-								<div class="flex flex-col w-full text-left bg-blue-300 mx-auto">
-									<p>Aujourd'hui il fait beau</p>
-									<br />
-									<p>Demain il va pleuvoir</p>
-									<br />
-									<p>Hier il y avait du vent</p>
-									<br />
-									<p>La semaine prochaine il y aura de l'orage</p>
-									<br />
-								</div>
-							</div>
+					<div class="flex mb-4 text-center text-3xl pl-3">
+						<h1>{{ poeme.title }}</h1>
+					</div>
+					<div class="w-full flex">
+						<div class="flex flex-col mb-4 py-2 px-3 w-full justify-center">
+							<pre lang="fr" class="whitespace-pre-line border text-grey-darkest bg-transparent border-none" disabled type="text"> {{ poeme.content }}</pre>
 						</div>
 					</div>
 				</div>
@@ -41,7 +25,7 @@
 </template>
 
 <script>
-import { reactive, computed, useContext, useAsync } from '@nuxtjs/composition-api' // import de fonction, permet d'utiliser des hooks de vuejs3
+import { reactive, computed, useContext, useAsync, onMounted, ref } from '@nuxtjs/composition-api' // import de fonction, permet d'utiliser des hooks de vuejs3
 
 export default {
 	layout: 'master',
@@ -49,29 +33,25 @@ export default {
 	// function disponible depuis vue3 qui permet de regrouper tout le code d'une même fonctionnalité au même endroit
 	setup() {
 		const { store, params } = useContext()
+		const state = reactive({ loaded: false })
 
 		useAsync(async () => {
 			// récupère tout les livres et les met à disposition dans le state.books.data
 			await store.dispatch('poemes/INDEX')
 			// afficher un livre sur la page en fonction de son id
 			await store.dispatch('poemes/SHOW', params.value.id)
+			state.loaded = true
 		})
 
 		const poeme = computed(() => store.state.poemes.item)
 
-		return { poeme }
+		return { state, poeme }
 	},
 }
 </script>
 
 <style>
 .calculed-height {
-	min-height: calc(100vh - 232px - 48px);
-}
-.centered {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	min-height: calc(100vh - 48px);
 }
 </style>

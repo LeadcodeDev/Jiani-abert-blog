@@ -27,11 +27,10 @@ export const mutations = {
 		state.data.splice(state.data.indexOf(chapter), 1)
 	},
 
-	update(state: { data: Array<any>; item: any }, payload:any) {
+	update(state: { data: Array<any>; item: any }, payload: any) {
 		const part = state.data.find((part) => part.id == state.item.id)
 		state.data[state.data.indexOf(part)] = payload
 	},
-
 
 	_UPDATE_TITLE(state: { item: any }, payload: any) {
 		state.item.title = payload
@@ -43,6 +42,10 @@ export const mutations = {
 
 	_UPDATE_PARTS(state: { item: any }, payload: any) {
 		state.item.part_id = payload
+	},
+
+	_UPDATE_PUBLISHED_AT(state: { item: any }, payload: any) {
+		state.item.published_at = payload
 	},
 }
 
@@ -67,9 +70,7 @@ export const actions = {
 			commit('store', data)
 			this.$router.push('/dashboard/chapter')
 			this.$toast.success('Le chapitre a bien été créé ✔')
-
 		} catch (error) {
-
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
 		}
 	},

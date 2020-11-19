@@ -4,8 +4,8 @@
 			<div class="w-2/3 mx-auto">
 				<h1 class="p-3 text-6xl text-blue-500">Mes livres</h1>
 			</div>
-			<div class="flex flex-wrap relative mx-auto w-2/3 pb-16">
-				<CardLivre class="text-white rounded-lg p-5 w-1/3" v-for="(book, key) in books" :book="book" :key="key" />
+			<div class="flex flex-wrap relative mx-auto w-2/3 pb-32">
+				<CardLivre class="text-white rounded-lg p-6 w-1/3" v-for="(book, key) in books" :book="book" :key="key" />
 			</div>
 		</div>
 	</main>
@@ -34,8 +34,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.calculed-height {
-	min-height: calc(100vh - 232px - 48px);
-}
-</style>
+<style lang="scss"></style>

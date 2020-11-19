@@ -33,6 +33,12 @@ export const mutations = {
 		state.data[state.data.indexOf(poeme)] = state.item
 	},
 
+	updatePicture(state: { data: Array<any>; item: any }, payload: any) {
+		const poeme = state.data.find((poeme) => poeme.id == state.item.id)
+		state.data[state.data.indexOf(poeme)] = payload
+		state.item = payload
+	},
+
 	_UPDATE_TITLE(state: { item: any }, payload: any) {
 		state.item.title = payload
 	},
@@ -58,12 +64,22 @@ export const actions = {
 	async STORE(this: any, { state, commit }: any, payload: any) {
 		try {
 			//stockage
-			const { data } = await this.$axios.post('/poemes', payload)
+			const formData = new FormData()
+			formData.append('picture', payload.picture)
+			formData.append('module', 'poeme')
+
+			// on récupère la picture
+			const { data } = await this.$axios.post('/pictures', formData)
+
+			// on crée le poème en ajoutant l'id de l'image
+			const { data: poeme } = await this.$axios.post('/poemes', { ...payload, pictureId: data.id })
+
 			// envoie les  nouvelles données vers les mutations
-			commit('store', data)
+			commit('store', poeme)
 			this.$router.push('/dashboard/poème')
 			this.$toast.success('Le poème a bien été créé ✔')
 		} catch (error) {
+			console.log(error)
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
 		}
 	},
@@ -88,6 +104,24 @@ export const actions = {
 			commit('update', data)
 			this.$router.push('/dashboard/poème')
 			this.$toast.success('Le poème a bien été mis à jour ✔')
+		} catch (error) {
+			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
+		}
+	},
+
+	async UPDATE_PICTURE(this: any, { state, commit }: any, payload: any) {
+		try {
+			const formData = new FormData()
+			formData.append('picture', payload)
+			formData.append('module', 'poeme')
+			const { data } = await this.$axios.post('/pictures', formData)
+
+			const { data: poeme } = await this.$axios.put('/poemes/' + state.item.id, { pictureId: data.id })
+
+			// envoie les  nouvelles données vers les mutations
+			commit('updatePicture', poeme)
+
+			this.$toast.success("L'image du poème a bien été mis à jour ✔")
 		} catch (error) {
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
 		}

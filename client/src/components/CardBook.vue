@@ -1,9 +1,9 @@
 <template>
 	<div class="relative">
 		<div class="relative flex flex-wrap h-custom">
-			<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/stars_sedona_arizona.jpg" class="rounded-lg w-full h-full object-cover" alt="" />
-			<div class="absolute top-0 left-0 w-full h-full rounded-lg hover:hidden transition duration-100 ease-in-out">
-				<div class="transition duration-200 ease-in-out rounded-lg font-medium">
+			<img :src="`http://localhost:3333/api/uploads/book/${book.picture.filename}`" class="rounded-l-lg border-r-8 border-t-8 rounded-br-lg border-black w-full h-full object-cover" alt="" />
+			<div class="absolute top-0 left-0 w-full h-full hover:hidden transition duration-100 ease-in-out">
+				<div class="transition duration-200 ease-in-out font-medium">
 					<div class="flex flex-col">
 						<div class="centered text-4xl">
 							Jiani-Abert
@@ -14,7 +14,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="absolute top-0 left-0 w-full h-full rounded-lg bg-blue-400 opacity-0 hover:opacity-100 transition duration-200 ease-in-out">
+			<div class="absolute top-0 left-0 w-full h-full rounded-l-lg bg-blue-400 rounded-br-lg opacity-0 hover:opacity-100 transition duration-200 ease-in-out">
 				<nuxt-link :to="'/books/' + book.id" class="centered px-3 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 ease-in-out rounded-lg">
 					Lire plus
 				</nuxt-link>
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .h-custom {
 	height: 35rem;
 }
