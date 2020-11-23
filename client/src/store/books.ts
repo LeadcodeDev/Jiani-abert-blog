@@ -80,6 +80,7 @@ export const actions = {
 			this.$router.push('/dashboard/book')
 			this.$toast.success('Le livre a bien été créé ✔')
 		} catch (error) {
+			console.log(error)
 			error.response.data.errors.forEach((error: any) => this.$toast.error(error.message))
 		}
 	},

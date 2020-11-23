@@ -4,11 +4,11 @@ import User from 'App/Models/User'
 export default class UserSeeder extends BaseSeeder {
 	public async run() {
 		await User.create({
-			firstname: 'admin',
-			lastname: 'admin',
-			email: 'admin@admin.fr',
-			password: 'admin',
-			description: 'je suis un admin'
+			firstname: 'jiani',
+			lastname: 'abert',
+			email: 'jianiabert@orange.fr',
+			password: 'ajibiearnti',
+			description: 'Poète et bien des choses'
 		})
 	}
 }

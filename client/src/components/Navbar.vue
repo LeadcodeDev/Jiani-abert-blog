@@ -8,7 +8,6 @@
 				<div class="flex space-x-12">
 					<nuxt-link to="/poemes" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Poème</nuxt-link>
 					<nuxt-link to="/books" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Livre</nuxt-link>
-					<nuxt-link to="/" class="rounded-lg cursor-pointer hover:text-blue-600 px-3 py-1">Boutton </nuxt-link>
 				</div>
 			</div>
 		</div>

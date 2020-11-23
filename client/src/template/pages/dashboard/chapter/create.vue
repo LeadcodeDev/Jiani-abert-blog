@@ -56,8 +56,8 @@ export default {
 	setup() {
 		const { store } = useContext()
 		const state = reactive({
-			label: '',
-			description: '',
+			title: '',
+			content: '',
 			part_id: 0,
 			publishedAt: '',
 		})

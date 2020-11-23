@@ -15,7 +15,7 @@
 					</div>
 					<div class="w-full flex">
 						<div class="flex flex-col mb-4 py-2 px-3 w-full justify-center">
-							<pre lang="fr" class="whitespace-pre-line border text-grey-darkest bg-transparent border-none" disabled type="text"> {{ poeme.content }}</pre>
+							<pre lang="fr" class="border text-grey-darkest bg-transparent border-none" disabled type="text"> {{ poeme.content }}</pre>
 						</div>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { reactive, computed, useContext, useAsync, onMounted, ref } from '@nuxtjs/composition-api' // import de fonction, permet d'utiliser des hooks de vuejs3
+import { reactive, computed, useContext, useAsync } from '@nuxtjs/composition-api' // import de fonction, permet d'utiliser des hooks de vuejs3
 
 export default {
 	layout: 'master',

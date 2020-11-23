@@ -11,6 +11,8 @@
 		</main>
 		<div class="flex justify-center w-full bg-teal-lighter">
 			<div class="w-1/2 bg-orange-300 rounded shadow-lg p-8">
+				<label class="inline-flex items-center mt-3"> <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" /><span class="ml-2 text-gray-700">limité la lecture</span> </label>
+
 				<h1 class="flex w-full text-center font-bold justify-center text-lg text-grey-darkest mb-6">Modifier mon livre</h1>
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">

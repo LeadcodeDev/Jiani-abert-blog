@@ -1,11 +1,11 @@
 <template>
-	<main class="calculed-height py-5">
+	<main class="min-h-screen py-5">
 		<div class="w-10/11 mx-auto pb-20">
 			<div class="w-2/3 mx-auto">
-				<h1 class="p-3 text-6xl text-blue-500">Mes livres</h1>
+				<h1 class="p-5 text-6xl text-blue-500">Mes Livres</h1>
 			</div>
 			<div class="flex flex-wrap relative mx-auto w-2/3 pb-32">
-				<CardLivre class="text-white rounded-lg p-6 w-1/3" v-for="(book, key) in books" :book="book" :key="key" />
+				<CardLivre v-for="(book, key) in books" class="text-white rounded-lg p-6 w-1/3" :book="book" :key="key" />
 			</div>
 		</div>
 	</main>

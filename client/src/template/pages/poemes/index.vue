@@ -1,5 +1,5 @@
 <template>
-	<main class="calculed-height py-5">
+	<main class="min-h-screen py-5">
 		<div class="w-10/11 mx-auto pb-20">
 			<div class="relative mx-auto">
 				<div class="w-2/3 mx-auto">
@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .h-custom {
 	height: 30rem;
 }

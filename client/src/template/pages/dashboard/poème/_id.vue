@@ -18,7 +18,7 @@
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Contenu du poème</label>
-						<textarea rows="5" class="px-3 text-grey-darkest resize-none overflow-hidden" id="email" @input="resize($event)" v-model="content" />
+						<textarea rows="5" class="px-3 text-grey-darkest resize-none overflow-hidden" id="email" @mouseover="resize($event)" v-model="content" />
 					</div>
 
 					<div class="flex pt-5">

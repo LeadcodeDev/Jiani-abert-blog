@@ -67,11 +67,11 @@ export default {
 
 		const title = computed({
 			get: () => store.state.chapters.item.title,
-			set: (value) => store.commit('chapters/_UPDATE_LABEL', value),
+			set: (value) => store.commit('chapters/_UPDATE_TITLE', value),
 		})
 		const content = computed({
 			get: () => store.state.chapters.item.content,
-			set: (value) => store.commit('chapters/_UPDATE_DESCRIPTION', value),
+			set: (value) => store.commit('chapters/_UPDATE_CONTENT', value),
 		})
 
 		const part = computed({
