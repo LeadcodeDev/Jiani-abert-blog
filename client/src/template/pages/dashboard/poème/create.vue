@@ -14,7 +14,7 @@
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
 						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest">Titre du poème</label>
-						<input class="border py-2 px-3 text-grey-darkest2" type="text" v-model="state.form.title" />
+						<input class="border py-2 px-3 text-grey-darkest2 outline-none" type="text" v-model="state.form.title" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest">Contenu du poème</label>

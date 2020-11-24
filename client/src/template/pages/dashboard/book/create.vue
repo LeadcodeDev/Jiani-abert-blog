@@ -16,11 +16,11 @@
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
 						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du livre</label>
-						<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="state.label" />
+						<input class="border py-2 px-3 text-grey-darkest2 outline-none" type="text" id="first_name" v-model="state.label" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Résumé du livre</label>
-						<textarea rows="5" class="border px-3 text-grey-darkest h-custom" id="email" v-model="state.description" />
+						<textarea rows="5" class="border px-3 text-grey-darkest h-custom outline-none" id="email" v-model="state.description" />
 					</div>
 					<div class="flex pt-5">
 						<div class="px-2 w-full">

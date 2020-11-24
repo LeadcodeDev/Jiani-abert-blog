@@ -1,10 +1,10 @@
 <template>
-	<main class="min-h-screen">
+	<main v-if="state.loaded" class="min-h-screen">
 		<div class="flex justify-center w-full bg-teal-lighter my-32 min-h">
 			<div class="w-1/2 flex justify-center bg-orange-300 rounded shadow-lg self-center t-5">
 				<div class="flex w-4/12 flex-col">
 					<div class="flex flex-wrap">
-						<div class="relative w-full h-full">
+						<div class="relative w-full">
 							<img :src="`http://localhost:3333/api/uploads/book/${picture.filename}`" class="rounded-lg w-full h-custom object-cover" alt="" />
 						</div>
 					</div>
@@ -21,16 +21,16 @@
 							</div>
 						</div>
 						<div v-for="(part, key) in book.parts" class="flex" :key="key">
-							<div class="self-center">
+							<div class="self-center pt-10">
 								<div class="text-2xl font-bold">
-									<nuxt-link :to="'/parts/' + part.id" class="centered px-3 py-2 hover:bg-blue-700 transition duration-200 ease-in-out rounded-lg">
+									<nuxt-link :to="'/parts/' + part.id" class="centered px-2 py-1 hover:bg-white transition duration-100 ease-in-out rounded-lg">
 										{{ part.label }}
 									</nuxt-link>
 								</div>
 								<div class="p-2">
 									<ul>
 										<li v-for="(chapter, key) in part.chapters" class="ml-5 p-2" :key="key">
-											<nuxt-link :to="'/chapters/' + chapter.id" class="centered px-3 py-2 hover:bg-blue-700 transition duration-200 ease-in-out rounded-lg">
+											<nuxt-link :to="'/chapters/' + chapter.id" class="centered px-2 py-1 hover:bg-gray-500 transition duration-100 ease-in-out rounded-lg">
 												{{ chapter.title }}
 											</nuxt-link>
 										</li>
@@ -81,13 +81,6 @@ export default {
 <style>
 .calculed-height {
 	min-height: calc(100vh - 48px);
-}
-
-.h-custom {
-	height: 200px;
-}
-.min-h {
-	min-height: 80%;
 }
 
 hr {

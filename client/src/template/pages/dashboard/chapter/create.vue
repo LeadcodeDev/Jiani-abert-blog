@@ -15,11 +15,11 @@
 				<form class="mb-4" action="/" method="post">
 					<div class="flex flex-col mb-4 md:w-full">
 						<label class="mb-2 uppercase tracking-wide text-center font-bold text-lg text-grey-darkest" for="first_name">Titre du chapitre</label>
-						<input class="border py-2 px-3 text-grey-darkest2" type="text" id="first_name" v-model="state.title" />
+						<input class="border py-2 px-3 text-grey-darkest2 outline-none" type="text" id="first_name" v-model="state.title" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="email">Contenu de mon chapitre</label>
-						<textarea rows="5" class="border px-3 text-grey-darkest" id="email" v-model="state.content" />
+						<textarea rows="5" class="border px-3 text-grey-darkest outline-none" id="email" v-model="state.content" />
 					</div>
 					<div class="flex flex-col mb-4 md:w-full text-center">
 						<v-select label="label" :options="parts" v-model="state.part_id" :reduce="(part) => part.id"></v-select>

@@ -1,6 +1,6 @@
 <template>
 	<div class="block-centered w-full">
-		<div class="flex text-center bg-white-500 profil w-1/2 mx-auto">
+		<div class="flex text-center shadow-lg bg-white-500 profil w-1/2 mx-auto">
 			<div class="w-1/2 flex justify-center">
 				<div class="w-full h-64 self-center">
 					<img src="http://jiani-abert.fr/uploads/profils/pp-jiani.jpg" alt="" class="object-cover rounded-l-lg w-full h-full" />
@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .block-centered {
 	position: absolute;
-	top: 50%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }

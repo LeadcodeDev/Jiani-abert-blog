@@ -8,10 +8,14 @@
 				</div>
 			</div>
 		</main>
+		<div class="w-8/12 mt-5 flex justify-between">
+			<h1 class="px-12">Livre</h1>
+			<h1>Numéro</h1>
+			<h1>Partie</h1>
+		</div>
 		<div class="px-8 mt-6">
 			<div v-for="(part, key) in parts" class="border px-4 py-3 w-full flex justify-between mb-4 shadow-sm rounded" :key="key">
 				<div class="flex">
-					<p class="flex pr-2">Livre :</p>
 					<nuxt-link class="hover:text-orange-700" :to="`/dashboard/book/${part.book_id}`">
 						{{ part.book.label }}
 					</nuxt-link>

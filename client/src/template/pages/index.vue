@@ -1,13 +1,18 @@
 <template>
 	<div>
-		<!-- <img src="@/public/images/accueil.jpg" class="absolute object-cover h-home w-full bg-aqua absolute" alt="" /> -->
-		<div class="absolute object-cover h-home w-full absolute"></div>
-
-		<div class="relative calculedHead mx-auto md:text-center">
-			<Header class="" />
+		<div class="w-full h-full absolute">
+			<img src="@/public/images/beautiful-sunset-in-the-mountains-landscape-with-sun-light-shining-through-orange-clouds-and-fog.jpg" alt="" class="object-cover w-full calculedHead" />
 		</div>
-		<div class="relative mb-32 mx-auto flex flex-wrap width-perso">
-			<Card class="text-center" v-for="(poeme, key) in poemes" :poeme="poeme" :key="key" />
+		<div class="relative calculedHead mx-auto">
+			<Header class="" />
+			<div class="absolute bottom-0 w-full text-center">
+				<div class="animate-bounce">
+					<nuxt-link to="#poémes"><i class="icon-angle-down cursor-pointer text-white text-6xl"></i></nuxt-link>
+				</div>
+			</div>
+		</div>
+		<div id="poémes" class="mx-auto justify-center pt-20 pb-20 flex-wrap flex">
+			<Card class="w-3/12 flex self-center border mx-3 my-3" v-for="(poeme, key) in [...poemes.slice(0, 9)]" :poeme="poeme" :key="key" />
 		</div>
 
 		<div class="relative justify-center">
@@ -15,7 +20,6 @@
 			<div class="relative mx-auto py-10">
 				<Citation />
 			</div>
-			<div class="justify-center flex"></div>
 		</div>
 	</div>
 </template>
@@ -48,19 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
-.h-home {
-	height: 72vh;
-}
-
 .calculedHead {
-	height: calc(70vh - 100px);
-}
-
-.width-perso {
-	width: 1290px;
-}
-
-.width-hr {
-	width: 66%;
+	height: calc(100vh - 48px);
 }
 </style>
