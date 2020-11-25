@@ -33,35 +33,45 @@ Route.group(() => {
 
 	Route.resource('cookies', 'CookiesController').apiOnly().only(['show', 'store'])
 
-	Route.resource('poemes', 'PoèmesController').apiOnly().middleware({
-		// store: [ 'auth'],
-		// edit: [ 'auth'],
-		// destroy: [ 'auth']
-	})
+	Route.resource('poemes', 'PoèmesController')
+		.apiOnly()
+		.middleware({
+			store: ['auth'],
+			edit: ['auth'],
+			destroy: ['auth']
+		})
 
-	Route.resource('books', 'BooksController').apiOnly().middleware({
-		// store: [ 'auth'],
-		// edit: [ 'auth'],
-		// destroy: [ 'auth']
-	})
+	Route.resource('books', 'BooksController')
+		.apiOnly()
+		.middleware({
+			store: ['auth'],
+			edit: ['auth'],
+			destroy: ['auth']
+		})
 
-	Route.resource('parts', 'PartsController').apiOnly().middleware({
-		// store: [ 'auth'],
-		// edit: [ 'auth'],
-		// destroy: [ 'auth']
-	})
+	Route.resource('parts', 'PartsController')
+		.apiOnly()
+		.middleware({
+			store: ['auth'],
+			edit: ['auth'],
+			destroy: ['auth']
+		})
 
-	Route.resource('chapters', 'ChaptersController').apiOnly().middleware({
-		// store: [ 'auth'],
-		// edit: [ 'auth'],
-		// destroy: [ 'auth']
-	})
+	Route.resource('chapters', 'ChaptersController')
+		.apiOnly()
+		.middleware({
+			store: ['auth'],
+			edit: ['auth'],
+			destroy: ['auth']
+		})
 
-	Route.resource('pictures', 'PicturesController').apiOnly().middleware({
-		// store: [ 'auth'],
-		// edit: [ 'auth'],
-		// destroy: [ 'auth']
-	})
+	Route.resource('pictures', 'PicturesController')
+		.apiOnly()
+		.middleware({
+			store: ['auth'],
+			edit: ['auth'],
+			destroy: ['auth']
+		})
 
 	// récupérer une ou plusieurs images
 	Route.get('/uploads/:module/:filename', async ({ response, params }) => {

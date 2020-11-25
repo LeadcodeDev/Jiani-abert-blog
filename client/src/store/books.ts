@@ -1,5 +1,6 @@
 export const state = () => ({
 	data: [],
+	currentChapters: [],
 	item: {},
 })
 
@@ -12,6 +13,17 @@ export const mutations = {
 	show(state: { data: Array<any>; item: any }, payload: number) {
 		// on recherche un livre qui a un id identique au payload dans notre state.data
 		state.item = state.data.find((book) => book.id == payload)
+	},
+
+	setupChapters(state: { currentChapters: Array<any>; item: any }) {
+		console.log(1)
+		let chapters: Array<any> = []
+		state.item.parts.forEach((part: any) => {
+			part.chapters.forEach((chapter: any) => {
+				chapters.push(chapter)
+			})
+		})
+		state.currentChapters = chapters
 	},
 
 	// suppression d'un livre

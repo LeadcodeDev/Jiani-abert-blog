@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div id="poémes" class="mx-auto justify-center pt-20 pb-20 flex-wrap flex">
-			<Card class="w-3/12 flex self-center border mx-3 my-3" v-for="(poeme, key) in [...poemes.slice(0, 9)]" :poeme="poeme" :key="key" />
+			<Card class="w-3/12 flex self-center border shadow-lg mx-3 my-3" v-for="(poeme, key) in [...poemes.slice(0, 9)]" :poeme="poeme" :key="key" />
 		</div>
 
 		<div class="relative justify-center">

@@ -5,7 +5,7 @@ import UpdateValidator from 'App/Validators/Poème/UpdateValidator'
 
 export default class PoèmesController {
 	public async index() {
-		return await Poème.query().orderBy('created_at', 'asc').preload('picture')
+		return await Poème.query().orderBy('created_at', 'desc').preload('picture')
 	}
 
 	public async show({ params }: HttpContextContract) {
